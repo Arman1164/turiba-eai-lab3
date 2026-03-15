@@ -1,0 +1,1516 @@
+{
+  "sagas": {
+    "ord-happy-001": {
+      "idempotencyKey": "idem-happy-001",
+      "state": "failed",
+      "steps": [],
+      "updatedAt": "2026-03-08T16:56:35.044Z"
+    },
+    "ord-pay-fail-001": {
+      "idempotencyKey": "idem-pay-fail-001-1772990428777",
+      "state": "failed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "failed",
+          "startedAt": "2026-03-08T17:20:28.792Z",
+          "finishedAt": "2026-03-08T17:20:28.821Z",
+          "durationMs": 29
+        }
+      ],
+      "updatedAt": "2026-03-08T17:20:28.823Z"
+    },
+    "ord-inv-fail-001": {
+      "idempotencyKey": "idem-comp-fail-1772990431948",
+      "state": "failed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:31.956Z",
+          "finishedAt": "2026-03-08T17:20:31.959Z",
+          "durationMs": 3
+        },
+        {
+          "step": "inventory",
+          "status": "failed",
+          "startedAt": "2026-03-08T17:20:31.959Z",
+          "finishedAt": "2026-03-08T17:20:31.962Z",
+          "durationMs": 3
+        },
+        {
+          "step": "payment_refund",
+          "status": "failed",
+          "startedAt": "2026-03-08T17:20:31.962Z",
+          "finishedAt": "2026-03-08T17:20:31.964Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:20:31.966Z"
+    },
+    "ord-ship-timeout-001": {
+      "idempotencyKey": "idem-ship-timeout-001-1772990429227",
+      "state": "compensated",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:29.246Z",
+          "finishedAt": "2026-03-08T17:20:29.249Z",
+          "durationMs": 3
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:29.249Z",
+          "finishedAt": "2026-03-08T17:20:29.252Z",
+          "durationMs": 3
+        },
+        {
+          "step": "shipping",
+          "status": "timeout",
+          "startedAt": "2026-03-08T17:20:29.252Z",
+          "finishedAt": "2026-03-08T17:20:31.756Z",
+          "durationMs": 2504
+        },
+        {
+          "step": "inventory_release",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:31.756Z",
+          "finishedAt": "2026-03-08T17:20:31.760Z",
+          "durationMs": 4
+        },
+        {
+          "step": "payment_refund",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:31.760Z",
+          "finishedAt": "2026-03-08T17:20:31.763Z",
+          "durationMs": 3
+        }
+      ],
+      "updatedAt": "2026-03-08T17:20:31.768Z"
+    },
+    "ord-replay-001": {
+      "idempotencyKey": "idem-replay-001-1772990432144",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.155Z",
+          "finishedAt": "2026-03-08T17:20:32.159Z",
+          "durationMs": 4
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.159Z",
+          "finishedAt": "2026-03-08T17:20:32.162Z",
+          "durationMs": 3
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.162Z",
+          "finishedAt": "2026-03-08T17:20:32.165Z",
+          "durationMs": 3
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.165Z",
+          "finishedAt": "2026-03-08T17:20:32.168Z",
+          "durationMs": 3
+        }
+      ],
+      "updatedAt": "2026-03-08T17:20:32.169Z"
+    },
+    "ord-mismatch-001": {
+      "idempotencyKey": "idem-mismatch-001-1772990432362",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.376Z",
+          "finishedAt": "2026-03-08T17:20:32.379Z",
+          "durationMs": 3
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.379Z",
+          "finishedAt": "2026-03-08T17:20:32.382Z",
+          "durationMs": 3
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.382Z",
+          "finishedAt": "2026-03-08T17:20:32.384Z",
+          "durationMs": 2
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.384Z",
+          "finishedAt": "2026-03-08T17:20:32.386Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:20:32.388Z"
+    },
+    "ord-trace-1772988996418": {
+      "idempotencyKey": "idem-trace-1772988996418",
+      "state": "failed",
+      "steps": [],
+      "updatedAt": "2026-03-08T16:56:36.431Z"
+    },
+    "ord-stress-0-1772988996605": {
+      "idempotencyKey": "idem-stress-0-1772988996605",
+      "state": "failed",
+      "steps": [],
+      "updatedAt": "2026-03-08T16:56:36.612Z"
+    },
+    "ord-stress-1-1772988996615": {
+      "idempotencyKey": "idem-stress-1-1772988996615",
+      "state": "failed",
+      "steps": [],
+      "updatedAt": "2026-03-08T16:56:36.621Z"
+    },
+    "ord-stress-2-1772988996625": {
+      "idempotencyKey": "idem-stress-2-1772988996625",
+      "state": "failed",
+      "steps": [],
+      "updatedAt": "2026-03-08T16:56:36.633Z"
+    },
+    "ord-stress-3-1772988996636": {
+      "idempotencyKey": "idem-stress-3-1772988996636",
+      "state": "failed",
+      "steps": [],
+      "updatedAt": "2026-03-08T16:56:36.644Z"
+    },
+    "ord-stress-4-1772988996647": {
+      "idempotencyKey": "idem-stress-4-1772988996647",
+      "state": "failed",
+      "steps": [],
+      "updatedAt": "2026-03-08T16:56:36.655Z"
+    },
+    "ord-trace-1772990432580": {
+      "idempotencyKey": "idem-trace-1772990432580",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.593Z",
+          "finishedAt": "2026-03-08T17:20:32.596Z",
+          "durationMs": 3
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.596Z",
+          "finishedAt": "2026-03-08T17:20:32.598Z",
+          "durationMs": 2
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.598Z",
+          "finishedAt": "2026-03-08T17:20:32.600Z",
+          "durationMs": 2
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.600Z",
+          "finishedAt": "2026-03-08T17:20:32.602Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:20:32.605Z"
+    },
+    "ord-stress-0-1772990432782": {
+      "idempotencyKey": "idem-stress-0-1772990432782",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.794Z",
+          "finishedAt": "2026-03-08T17:20:32.796Z",
+          "durationMs": 2
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.796Z",
+          "finishedAt": "2026-03-08T17:20:32.798Z",
+          "durationMs": 2
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.798Z",
+          "finishedAt": "2026-03-08T17:20:32.800Z",
+          "durationMs": 2
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.800Z",
+          "finishedAt": "2026-03-08T17:20:32.802Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:20:32.804Z"
+    },
+    "ord-stress-1-1772990432808": {
+      "idempotencyKey": "idem-stress-1-1772990432808",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.814Z",
+          "finishedAt": "2026-03-08T17:20:32.816Z",
+          "durationMs": 2
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.816Z",
+          "finishedAt": "2026-03-08T17:20:32.818Z",
+          "durationMs": 2
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.818Z",
+          "finishedAt": "2026-03-08T17:20:32.820Z",
+          "durationMs": 2
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.820Z",
+          "finishedAt": "2026-03-08T17:20:32.822Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:20:32.823Z"
+    },
+    "ord-stress-2-1772990432831": {
+      "idempotencyKey": "idem-stress-2-1772990432831",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.836Z",
+          "finishedAt": "2026-03-08T17:20:32.839Z",
+          "durationMs": 3
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.839Z",
+          "finishedAt": "2026-03-08T17:20:32.840Z",
+          "durationMs": 1
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.840Z",
+          "finishedAt": "2026-03-08T17:20:32.843Z",
+          "durationMs": 3
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.843Z",
+          "finishedAt": "2026-03-08T17:20:32.845Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:20:32.846Z"
+    },
+    "ord-stress-3-1772990432851": {
+      "idempotencyKey": "idem-stress-3-1772990432851",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.856Z",
+          "finishedAt": "2026-03-08T17:20:32.858Z",
+          "durationMs": 2
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.858Z",
+          "finishedAt": "2026-03-08T17:20:32.860Z",
+          "durationMs": 2
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.860Z",
+          "finishedAt": "2026-03-08T17:20:32.862Z",
+          "durationMs": 2
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.862Z",
+          "finishedAt": "2026-03-08T17:20:32.864Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:20:32.865Z"
+    },
+    "ord-stress-4-1772990432870": {
+      "idempotencyKey": "idem-stress-4-1772990432870",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.876Z",
+          "finishedAt": "2026-03-08T17:20:32.878Z",
+          "durationMs": 2
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.878Z",
+          "finishedAt": "2026-03-08T17:20:32.880Z",
+          "durationMs": 2
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.880Z",
+          "finishedAt": "2026-03-08T17:20:32.882Z",
+          "durationMs": 2
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:20:32.882Z",
+          "finishedAt": "2026-03-08T17:20:32.883Z",
+          "durationMs": 1
+        }
+      ],
+      "updatedAt": "2026-03-08T17:20:32.885Z"
+    },
+    "ord-hidden-happy-1772991414871-3805": {
+      "idempotencyKey": "idem-hidden-happy-1772991414871-6938",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:54.888Z",
+          "finishedAt": "2026-03-08T17:36:54.903Z",
+          "durationMs": 15
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:54.903Z",
+          "finishedAt": "2026-03-08T17:36:54.906Z",
+          "durationMs": 3
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:54.906Z",
+          "finishedAt": "2026-03-08T17:36:54.908Z",
+          "durationMs": 2
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:54.908Z",
+          "finishedAt": "2026-03-08T17:36:54.910Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:54.911Z"
+    },
+    "ord-hidden-payfail-1772991414934-8740": {
+      "idempotencyKey": "idem-hidden-payfail-1772991414934-1963",
+      "state": "failed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "failed",
+          "startedAt": "2026-03-08T17:36:54.940Z",
+          "finishedAt": "2026-03-08T17:36:54.943Z",
+          "durationMs": 3
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:54.944Z"
+    },
+    "ord-hidden-invfail-1772991414969-7962": {
+      "idempotencyKey": "idem-hidden-invfail-1772991414969-1691",
+      "state": "compensated",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:54.976Z",
+          "finishedAt": "2026-03-08T17:36:54.978Z",
+          "durationMs": 2
+        },
+        {
+          "step": "inventory",
+          "status": "failed",
+          "startedAt": "2026-03-08T17:36:54.978Z",
+          "finishedAt": "2026-03-08T17:36:54.980Z",
+          "durationMs": 2
+        },
+        {
+          "step": "payment_refund",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:54.980Z",
+          "finishedAt": "2026-03-08T17:36:54.982Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:54.983Z"
+    },
+    "ord-hidden-timeout-1772991415003-6710": {
+      "idempotencyKey": "idem-hidden-timeout-1772991415003-9787",
+      "state": "compensated",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:55.010Z",
+          "finishedAt": "2026-03-08T17:36:55.012Z",
+          "durationMs": 2
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:55.012Z",
+          "finishedAt": "2026-03-08T17:36:55.014Z",
+          "durationMs": 2
+        },
+        {
+          "step": "shipping",
+          "status": "timeout",
+          "startedAt": "2026-03-08T17:36:55.014Z",
+          "finishedAt": "2026-03-08T17:36:57.519Z",
+          "durationMs": 2505
+        },
+        {
+          "step": "inventory_release",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:57.520Z",
+          "finishedAt": "2026-03-08T17:36:57.524Z",
+          "durationMs": 4
+        },
+        {
+          "step": "payment_refund",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:57.524Z",
+          "finishedAt": "2026-03-08T17:36:57.527Z",
+          "durationMs": 3
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:57.531Z"
+    },
+    "ord-hidden-compfail-1772991417558-965": {
+      "idempotencyKey": "idem-hidden-compfail-1772991417558-869",
+      "state": "failed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:57.565Z",
+          "finishedAt": "2026-03-08T17:36:57.568Z",
+          "durationMs": 3
+        },
+        {
+          "step": "inventory",
+          "status": "failed",
+          "startedAt": "2026-03-08T17:36:57.568Z",
+          "finishedAt": "2026-03-08T17:36:57.570Z",
+          "durationMs": 2
+        },
+        {
+          "step": "payment_refund",
+          "status": "failed",
+          "startedAt": "2026-03-08T17:36:57.570Z",
+          "finishedAt": "2026-03-08T17:36:57.571Z",
+          "durationMs": 1
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:57.573Z"
+    },
+    "ord-hidden-mismatch-1772991417591-754": {
+      "idempotencyKey": "idem-hidden-mismatch-1772991417591-3850",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:57.598Z",
+          "finishedAt": "2026-03-08T17:36:57.600Z",
+          "durationMs": 2
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:57.600Z",
+          "finishedAt": "2026-03-08T17:36:57.602Z",
+          "durationMs": 2
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:57.602Z",
+          "finishedAt": "2026-03-08T17:36:57.604Z",
+          "durationMs": 2
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:57.604Z",
+          "finishedAt": "2026-03-08T17:36:57.606Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:57.607Z"
+    },
+    "ord-hidden-replay-1772991417628-2455": {
+      "idempotencyKey": "idem-hidden-replay-1772991417628-3439",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:57.635Z",
+          "finishedAt": "2026-03-08T17:36:57.637Z",
+          "durationMs": 2
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:57.637Z",
+          "finishedAt": "2026-03-08T17:36:57.639Z",
+          "durationMs": 2
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:57.639Z",
+          "finishedAt": "2026-03-08T17:36:57.641Z",
+          "durationMs": 2
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:57.641Z",
+          "finishedAt": "2026-03-08T17:36:57.643Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:57.644Z"
+    },
+    "ord-hidden-par-1772991417668-1511": {
+      "idempotencyKey": "idem-hidden-par-1772991417668-6127",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:57.676Z",
+          "finishedAt": "2026-03-08T17:36:57.678Z",
+          "durationMs": 2
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:57.678Z",
+          "finishedAt": "2026-03-08T17:36:57.690Z",
+          "durationMs": 12
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:57.690Z",
+          "finishedAt": "2026-03-08T17:36:59.092Z",
+          "durationMs": 1402
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.092Z",
+          "finishedAt": "2026-03-08T17:36:59.094Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:59.097Z"
+    },
+    "ord-meta-non-semantic-field-variation-1-base-1772991419120-8619": {
+      "idempotencyKey": "idem-meta-non-semantic-field-variation-1-base-1772991419120-8107",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.130Z",
+          "finishedAt": "2026-03-08T17:36:59.132Z",
+          "durationMs": 2
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.132Z",
+          "finishedAt": "2026-03-08T17:36:59.134Z",
+          "durationMs": 2
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.134Z",
+          "finishedAt": "2026-03-08T17:36:59.135Z",
+          "durationMs": 1
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.135Z",
+          "finishedAt": "2026-03-08T17:36:59.138Z",
+          "durationMs": 3
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:59.139Z"
+    },
+    "ord-meta-non-semantic-field-variation-1-variant-1772991419120-6746": {
+      "idempotencyKey": "idem-meta-non-semantic-field-variation-1-var-1772991419143-9458",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.150Z",
+          "finishedAt": "2026-03-08T17:36:59.152Z",
+          "durationMs": 2
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.152Z",
+          "finishedAt": "2026-03-08T17:36:59.154Z",
+          "durationMs": 2
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.154Z",
+          "finishedAt": "2026-03-08T17:36:59.156Z",
+          "durationMs": 2
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.156Z",
+          "finishedAt": "2026-03-08T17:36:59.157Z",
+          "durationMs": 1
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:59.159Z"
+    },
+    "ord-meta-non-semantic-field-variation-2-base-1772991419163-8200": {
+      "idempotencyKey": "idem-meta-non-semantic-field-variation-2-base-1772991419163-7561",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.170Z",
+          "finishedAt": "2026-03-08T17:36:59.173Z",
+          "durationMs": 3
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.173Z",
+          "finishedAt": "2026-03-08T17:36:59.175Z",
+          "durationMs": 2
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.175Z",
+          "finishedAt": "2026-03-08T17:36:59.176Z",
+          "durationMs": 1
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.176Z",
+          "finishedAt": "2026-03-08T17:36:59.178Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:59.180Z"
+    },
+    "ord-meta-non-semantic-field-variation-2-variant-1772991419163-2868": {
+      "idempotencyKey": "idem-meta-non-semantic-field-variation-2-var-1772991419184-3210",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.191Z",
+          "finishedAt": "2026-03-08T17:36:59.193Z",
+          "durationMs": 2
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.193Z",
+          "finishedAt": "2026-03-08T17:36:59.194Z",
+          "durationMs": 1
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.194Z",
+          "finishedAt": "2026-03-08T17:36:59.196Z",
+          "durationMs": 2
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.196Z",
+          "finishedAt": "2026-03-08T17:36:59.198Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:59.199Z"
+    },
+    "ord-hidden-rand-0-1772991419217-6329": {
+      "idempotencyKey": "idem-hidden-rand-0-1772991419217-4550",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.224Z",
+          "finishedAt": "2026-03-08T17:36:59.226Z",
+          "durationMs": 2
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.226Z",
+          "finishedAt": "2026-03-08T17:36:59.227Z",
+          "durationMs": 1
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.227Z",
+          "finishedAt": "2026-03-08T17:36:59.229Z",
+          "durationMs": 2
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.229Z",
+          "finishedAt": "2026-03-08T17:36:59.231Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:59.233Z"
+    },
+    "ord-hidden-rand-1-1772991419237-8643": {
+      "idempotencyKey": "idem-hidden-rand-1-1772991419237-1901",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.243Z",
+          "finishedAt": "2026-03-08T17:36:59.246Z",
+          "durationMs": 3
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.246Z",
+          "finishedAt": "2026-03-08T17:36:59.248Z",
+          "durationMs": 2
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.248Z",
+          "finishedAt": "2026-03-08T17:36:59.249Z",
+          "durationMs": 1
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.249Z",
+          "finishedAt": "2026-03-08T17:36:59.251Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:59.252Z"
+    },
+    "ord-hidden-rand-2-1772991419256-9830": {
+      "idempotencyKey": "idem-hidden-rand-2-1772991419256-4235",
+      "state": "completed",
+      "steps": [
+        {
+          "step": "payment",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.263Z",
+          "finishedAt": "2026-03-08T17:36:59.266Z",
+          "durationMs": 3
+        },
+        {
+          "step": "inventory",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.266Z",
+          "finishedAt": "2026-03-08T17:36:59.268Z",
+          "durationMs": 2
+        },
+        {
+          "step": "shipping",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.268Z",
+          "finishedAt": "2026-03-08T17:36:59.269Z",
+          "durationMs": 1
+        },
+        {
+          "step": "notification",
+          "status": "success",
+          "startedAt": "2026-03-08T17:36:59.269Z",
+          "finishedAt": "2026-03-08T17:36:59.271Z",
+          "durationMs": 2
+        }
+      ],
+      "updatedAt": "2026-03-08T17:36:59.272Z"
+    }
+  },
+  "ord-happy-001": {
+    "idempotencyKey": "idem-happy-001",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:09.824Z",
+        "finishedAt": "2026-03-15T14:08:09.836Z",
+        "durationMs": 12
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:09.836Z",
+        "finishedAt": "2026-03-15T14:08:09.839Z",
+        "durationMs": 3
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:09.839Z",
+        "finishedAt": "2026-03-15T14:08:09.842Z",
+        "durationMs": 3
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:09.842Z",
+        "finishedAt": "2026-03-15T14:08:09.844Z",
+        "durationMs": 2
+      }
+    ],
+    "updatedAt": "2026-03-15T14:08:09.850Z"
+  },
+  "ord-pay-fail-001": {
+    "idempotencyKey": "idem-pay-fail-001-1773583819295",
+    "state": "failed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "failed",
+        "startedAt": "2026-03-15T14:10:19.302Z",
+        "finishedAt": "2026-03-15T14:10:19.306Z",
+        "durationMs": 4
+      }
+    ],
+    "updatedAt": "2026-03-15T14:10:19.311Z"
+  },
+  "ord-inv-fail-001": {
+    "idempotencyKey": "idem-comp-fail-1773583822399",
+    "state": "compensated",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:22.407Z",
+        "finishedAt": "2026-03-15T14:10:22.409Z",
+        "durationMs": 2
+      },
+      {
+        "step": "inventory",
+        "status": "failed",
+        "startedAt": "2026-03-15T14:10:22.409Z",
+        "finishedAt": "2026-03-15T14:10:22.411Z",
+        "durationMs": 2
+      },
+      {
+        "step": "payment-refund",
+        "status": "failed",
+        "startedAt": "2026-03-15T14:10:22.411Z",
+        "finishedAt": "2026-03-15T14:10:22.413Z",
+        "durationMs": 2
+      }
+    ],
+    "updatedAt": "2026-03-15T14:10:22.418Z"
+  },
+  "ord-ship-timeout-001": {
+    "idempotencyKey": "idem-ship-timeout-001-1773583819698",
+    "state": "compensated",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:19.705Z",
+        "finishedAt": "2026-03-15T14:10:19.707Z",
+        "durationMs": 2
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:19.707Z",
+        "finishedAt": "2026-03-15T14:10:19.709Z",
+        "durationMs": 2
+      },
+      {
+        "step": "shipping",
+        "status": "timeout",
+        "startedAt": "2026-03-15T14:10:19.709Z",
+        "finishedAt": "2026-03-15T14:10:22.210Z",
+        "durationMs": 2501
+      },
+      {
+        "step": "inventory-release",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:22.210Z",
+        "finishedAt": "2026-03-15T14:10:22.212Z",
+        "durationMs": 2
+      },
+      {
+        "step": "payment-refund",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:22.212Z",
+        "finishedAt": "2026-03-15T14:10:22.215Z",
+        "durationMs": 3
+      }
+    ],
+    "updatedAt": "2026-03-15T14:10:22.220Z"
+  },
+  "ord-replay-001": {
+    "idempotencyKey": "idem-replay-001-1773583822592",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:22.600Z",
+        "finishedAt": "2026-03-15T14:10:22.602Z",
+        "durationMs": 2
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:22.602Z",
+        "finishedAt": "2026-03-15T14:10:22.604Z",
+        "durationMs": 2
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:22.604Z",
+        "finishedAt": "2026-03-15T14:10:22.605Z",
+        "durationMs": 1
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:22.606Z",
+        "finishedAt": "2026-03-15T14:10:22.607Z",
+        "durationMs": 1
+      }
+    ],
+    "updatedAt": "2026-03-15T14:10:22.613Z"
+  },
+  "ord-mismatch-001": {
+    "idempotencyKey": "idem-mismatch-001-1773583822798",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:22.806Z",
+        "finishedAt": "2026-03-15T14:10:22.809Z",
+        "durationMs": 3
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:22.809Z",
+        "finishedAt": "2026-03-15T14:10:22.811Z",
+        "durationMs": 2
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:22.811Z",
+        "finishedAt": "2026-03-15T14:10:22.813Z",
+        "durationMs": 2
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:22.813Z",
+        "finishedAt": "2026-03-15T14:10:22.814Z",
+        "durationMs": 1
+      }
+    ],
+    "updatedAt": "2026-03-15T14:10:22.819Z"
+  },
+  "ord-trace-1773583693776": {
+    "idempotencyKey": "idem-trace-1773583693776",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:13.784Z",
+        "finishedAt": "2026-03-15T14:08:13.787Z",
+        "durationMs": 3
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:13.787Z",
+        "finishedAt": "2026-03-15T14:08:13.788Z",
+        "durationMs": 1
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:13.788Z",
+        "finishedAt": "2026-03-15T14:08:13.790Z",
+        "durationMs": 2
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:13.790Z",
+        "finishedAt": "2026-03-15T14:08:13.792Z",
+        "durationMs": 2
+      }
+    ],
+    "updatedAt": "2026-03-15T14:08:13.797Z"
+  },
+  "ord-stress-0-1773583693973": {
+    "idempotencyKey": "idem-stress-0-1773583693973",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:13.982Z",
+        "finishedAt": "2026-03-15T14:08:13.984Z",
+        "durationMs": 2
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:13.984Z",
+        "finishedAt": "2026-03-15T14:08:13.986Z",
+        "durationMs": 2
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:13.986Z",
+        "finishedAt": "2026-03-15T14:08:13.988Z",
+        "durationMs": 2
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:13.988Z",
+        "finishedAt": "2026-03-15T14:08:13.991Z",
+        "durationMs": 3
+      }
+    ],
+    "updatedAt": "2026-03-15T14:08:13.996Z"
+  },
+  "ord-stress-1-1773583693998": {
+    "idempotencyKey": "idem-stress-1-1773583693998",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.005Z",
+        "finishedAt": "2026-03-15T14:08:14.008Z",
+        "durationMs": 3
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.008Z",
+        "finishedAt": "2026-03-15T14:08:14.010Z",
+        "durationMs": 2
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.010Z",
+        "finishedAt": "2026-03-15T14:08:14.011Z",
+        "durationMs": 1
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.011Z",
+        "finishedAt": "2026-03-15T14:08:14.013Z",
+        "durationMs": 2
+      }
+    ],
+    "updatedAt": "2026-03-15T14:08:14.018Z"
+  },
+  "ord-stress-2-1773583694020": {
+    "idempotencyKey": "idem-stress-2-1773583694020",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.027Z",
+        "finishedAt": "2026-03-15T14:08:14.030Z",
+        "durationMs": 3
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.030Z",
+        "finishedAt": "2026-03-15T14:08:14.032Z",
+        "durationMs": 2
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.032Z",
+        "finishedAt": "2026-03-15T14:08:14.034Z",
+        "durationMs": 2
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.034Z",
+        "finishedAt": "2026-03-15T14:08:14.036Z",
+        "durationMs": 2
+      }
+    ],
+    "updatedAt": "2026-03-15T14:08:14.040Z"
+  },
+  "ord-stress-3-1773583694043": {
+    "idempotencyKey": "idem-stress-3-1773583694043",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.050Z",
+        "finishedAt": "2026-03-15T14:08:14.052Z",
+        "durationMs": 2
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.052Z",
+        "finishedAt": "2026-03-15T14:08:14.054Z",
+        "durationMs": 2
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.054Z",
+        "finishedAt": "2026-03-15T14:08:14.055Z",
+        "durationMs": 1
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.055Z",
+        "finishedAt": "2026-03-15T14:08:14.057Z",
+        "durationMs": 2
+      }
+    ],
+    "updatedAt": "2026-03-15T14:08:14.063Z"
+  },
+  "ord-stress-4-1773583694065": {
+    "idempotencyKey": "idem-stress-4-1773583694065",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.072Z",
+        "finishedAt": "2026-03-15T14:08:14.074Z",
+        "durationMs": 2
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.074Z",
+        "finishedAt": "2026-03-15T14:08:14.076Z",
+        "durationMs": 2
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.076Z",
+        "finishedAt": "2026-03-15T14:08:14.078Z",
+        "durationMs": 2
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:08:14.078Z",
+        "finishedAt": "2026-03-15T14:08:14.080Z",
+        "durationMs": 2
+      }
+    ],
+    "updatedAt": "2026-03-15T14:08:14.085Z"
+  },
+  "ord-trace-1773583822999": {
+    "idempotencyKey": "idem-trace-1773583822999",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.006Z",
+        "finishedAt": "2026-03-15T14:10:23.008Z",
+        "durationMs": 2
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.008Z",
+        "finishedAt": "2026-03-15T14:10:23.011Z",
+        "durationMs": 3
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.011Z",
+        "finishedAt": "2026-03-15T14:10:23.012Z",
+        "durationMs": 1
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.012Z",
+        "finishedAt": "2026-03-15T14:10:23.014Z",
+        "durationMs": 2
+      }
+    ],
+    "updatedAt": "2026-03-15T14:10:23.020Z"
+  },
+  "ord-stress-0-1773583823190": {
+    "idempotencyKey": "idem-stress-0-1773583823190",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.199Z",
+        "finishedAt": "2026-03-15T14:10:23.201Z",
+        "durationMs": 2
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.201Z",
+        "finishedAt": "2026-03-15T14:10:23.202Z",
+        "durationMs": 1
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.202Z",
+        "finishedAt": "2026-03-15T14:10:23.204Z",
+        "durationMs": 2
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.204Z",
+        "finishedAt": "2026-03-15T14:10:23.205Z",
+        "durationMs": 1
+      }
+    ],
+    "updatedAt": "2026-03-15T14:10:23.210Z"
+  },
+  "ord-stress-1-1773583823213": {
+    "idempotencyKey": "idem-stress-1-1773583823213",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.221Z",
+        "finishedAt": "2026-03-15T14:10:23.223Z",
+        "durationMs": 2
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.223Z",
+        "finishedAt": "2026-03-15T14:10:23.225Z",
+        "durationMs": 2
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.225Z",
+        "finishedAt": "2026-03-15T14:10:23.227Z",
+        "durationMs": 2
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.227Z",
+        "finishedAt": "2026-03-15T14:10:23.228Z",
+        "durationMs": 1
+      }
+    ],
+    "updatedAt": "2026-03-15T14:10:23.234Z"
+  },
+  "ord-stress-2-1773583823237": {
+    "idempotencyKey": "idem-stress-2-1773583823237",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.244Z",
+        "finishedAt": "2026-03-15T14:10:23.246Z",
+        "durationMs": 2
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.246Z",
+        "finishedAt": "2026-03-15T14:10:23.249Z",
+        "durationMs": 3
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.249Z",
+        "finishedAt": "2026-03-15T14:10:23.251Z",
+        "durationMs": 2
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.251Z",
+        "finishedAt": "2026-03-15T14:10:23.252Z",
+        "durationMs": 1
+      }
+    ],
+    "updatedAt": "2026-03-15T14:10:23.257Z"
+  },
+  "ord-stress-3-1773583823259": {
+    "idempotencyKey": "idem-stress-3-1773583823259",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.267Z",
+        "finishedAt": "2026-03-15T14:10:23.269Z",
+        "durationMs": 2
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.269Z",
+        "finishedAt": "2026-03-15T14:10:23.271Z",
+        "durationMs": 2
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.271Z",
+        "finishedAt": "2026-03-15T14:10:23.273Z",
+        "durationMs": 2
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.273Z",
+        "finishedAt": "2026-03-15T14:10:23.274Z",
+        "durationMs": 1
+      }
+    ],
+    "updatedAt": "2026-03-15T14:10:23.280Z"
+  },
+  "ord-stress-4-1773583823282": {
+    "idempotencyKey": "idem-stress-4-1773583823282",
+    "state": "completed",
+    "steps": [
+      {
+        "step": "payment",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.289Z",
+        "finishedAt": "2026-03-15T14:10:23.291Z",
+        "durationMs": 2
+      },
+      {
+        "step": "inventory",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.291Z",
+        "finishedAt": "2026-03-15T14:10:23.293Z",
+        "durationMs": 2
+      },
+      {
+        "step": "shipping",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.293Z",
+        "finishedAt": "2026-03-15T14:10:23.294Z",
+        "durationMs": 1
+      },
+      {
+        "step": "notification",
+        "status": "success",
+        "startedAt": "2026-03-15T14:10:23.294Z",
+        "finishedAt": "2026-03-15T14:10:23.296Z",
+        "durationMs": 2
+      }
+    ],
+    "updatedAt": "2026-03-15T14:10:23.301Z"
+  }
+}
